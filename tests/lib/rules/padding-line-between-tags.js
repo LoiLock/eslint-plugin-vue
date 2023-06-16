@@ -333,6 +333,7 @@ tester.run('padding-line-between-tags', rule, {
         <div>
           <div v-if="true === true">Foo</div>
           <div v-else>bar</div>
+
           <div>bar</div>
         </div>
       </template>
