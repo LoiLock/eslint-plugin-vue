@@ -280,6 +280,73 @@ tester.run('padding-line-between-tags', rule, {
       </template>
       `,
       options: [[{ blankLine: 'never', prev: '*', next: '*' }]]
+    },
+    {
+      filename: 'test.vue',
+      code: `
+      <template>
+        <div>
+          <div v-if="true === true">Foo</div>
+          <div v-else>bar</div>
+        </div>
+      </template>
+      `,
+      options: [
+        [
+          {
+            blankLine: 'always',
+            prev: '*',
+            next: '*',
+            betweenConditionalTags: false
+          }
+        ]
+      ]
+    },
+    {
+      filename: 'test.vue',
+      code: `
+      <template>
+        <div>
+          <div v-if="true === true">Foo</div>
+
+          <div v-else>bar</div>
+
+          <div>baz</div
+        </div>
+      </template>
+      `,
+      options: [
+        [
+          {
+            blankLine: 'always',
+            prev: '*',
+            next: '*',
+            betweenConditionalTags: true
+          }
+        ]
+      ]
+    },
+    {
+      filename: 'test.vue',
+      code: `
+      <template>
+        <div>
+          <div v-if="true === true">Foo</div>
+          <div v-else>bar</div>
+          <div>bar</div>
+        </div>
+      </template>
+      `,
+      options: [
+        [
+          {
+            blankLine: 'always',
+            prev: '*',
+            next: '*',
+            betweenConditionalTags: false
+          }
+        ]
+      ]
     }
   ],
   invalid: [
